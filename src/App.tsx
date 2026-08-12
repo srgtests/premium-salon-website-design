@@ -109,7 +109,7 @@ function Hero() {
       {/* Background portrait */}
       <div className="absolute inset-0">
         <img
-          src="/images/hero-portrait.jpg"
+          src={`${import.meta.env.BASE_URL}images/hero-portrait.jpg`}
           alt="The Trends Unisex Salon"
           className="w-full h-full object-cover"
         />

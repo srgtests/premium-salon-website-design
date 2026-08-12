@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", "Times New Roman", serif;
+  --font-display: "Italiana", "Cormorant Garamond", serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ivory: #FAF6F0;
+  --color-cream: #F1E9DD;
+  --color-beige: #E8DDD0;
+  --color-espresso: #1A1815;
+  --color-coffee: #2B251F;
+  --color-brass: #B8944D;
+  --color-brass-light: #D4B67A;
+  --color-rose: #D4A5A5;
+  --color-mauve: #8E6B5E;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-ivory);
+  color: var(--color-espresso);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.tracking-luxe {
+  letter-spacing: 0.28em;
+}
+
+/* Elegant underline animation */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-brass);
+  transition: width 0.4s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+/* Fade in */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  animation: fadeUp 1s ease forwards;
+}
+
+/* Gold divider */
+.gold-divider {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-brass);
+}
+.gold-divider::before,
+.gold-divider::after {
+  content: "";
+  height: 1px;
+  width: 48px;
+  background-color: var(--color-brass);
+}
+
+/* Shimmer on hover for cards */
+.card-shine {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.6s ease;
+}
+.card-shine::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(184, 148, 77, 0.08) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.8s ease;
+}
+.card-shine:hover::before {
+  transform: translateX(100%);
+}
+.card-shine:hover {
+  transform: translateY(-6px);
+}
+
+/* Subtle noise */
+.bg-noise {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(184, 148, 77, 0.06) 0, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(212, 165, 165, 0.05) 0, transparent 40%);
+}
+
+/* Custom scrollbar (subtle) */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #FAF6F0; }
+::-webkit-scrollbar-thumb { background: #B8944D; border-radius: 10px; }
